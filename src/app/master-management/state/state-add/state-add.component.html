@@ -1,0 +1,13 @@
+<div>
+    <h2>Add State</h2>
+    <form [formGroup]="stateForm" (ngSubmit)="addState()">
+      <label for="name">Name:</label>
+      <input id="name" formControlName="state_name">
+      <br>
+      <label for="code">Code:</label>
+      <input id="code" formControlName="state_code">
+      <br>
+      <button type="submit" [disabled]="stateForm.invalid">Add</button>
+    </form>
+  </div>
+  
