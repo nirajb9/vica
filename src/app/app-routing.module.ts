@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 const mastermodule = () => import('./master-management/master-management.module').then(x => x.MasterManagementModule);
+const tppolicy = () => import('./tppolicy/tppolicy.module').then(x =>x.TppolicyModule);
 
 const routes: Routes = [
     { path: '', component: LayoutComponent, canActivate: [AuthGuard] },
@@ -19,6 +20,7 @@ const routes: Routes = [
         loadChildren: mastermodule,
         canActivate: [AuthGuard]
     },
+    { path: 'tppolicy', loadChildren: tppolicy, canActivate: [AuthGuard]},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

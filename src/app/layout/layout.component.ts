@@ -23,7 +23,7 @@ export class LayoutComponent implements OnInit {
   menu: NavItem [] = [
       {
         displayName: 'Dashboard',
-        iconName: 'desktop_windows',
+        iconName: '',//'desktop_windows',
         route: 'escritorio',
       },        
     
@@ -55,6 +55,37 @@ export class LayoutComponent implements OnInit {
               displayName: 'Varient',
               iconName: 'waves',
               route: '/todos'
+            }
+        ]
+      },
+      {
+        displayName: 'TP Policy',
+        iconName: 'desktop_windows',          
+        children: [
+          {
+            displayName: 'Private Car',
+            iconName: 'how_to_reg',
+            route: '/tppolicy/tppolicy-add'
+          },
+          { 
+            displayName: 'GCV-3 Wheeler',
+            iconName: 'waves',
+            route: '/tppolicy/tppolicy-list'
+          },
+          { 
+              displayName: 'GCV-4 Wheeler',
+              iconName: 'waves',
+              route: '/tppolicy/tppolicy-list'
+            },
+            { 
+              displayName: 'Tractor',
+              iconName: 'waves',
+              route: '/tppolicy/tppolicy-list'
+            },
+            { 
+              displayName: 'Three Wheel PCV(Auto)',
+              iconName: 'waves',
+              route: '/tppolicy/tppolicy-list'
             }
         ]
       }

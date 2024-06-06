@@ -1,0 +1,141 @@
+<mat-card>
+    <mat-card-content>
+<div class="example-form">
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Select State</mat-label>
+        <mat-select [(value)]="selectedState" (selectionChange)="stateChange($event)">
+            <mat-option value="0"> Select State</mat-option>
+            <mat-option value="{{x.stateId}}"  *ngFor="let x of stateList">{{x.stateName}}</mat-option>
+        </mat-select>
+    
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="margin-left: 30px;">
+        <mat-label>Vehicle Type</mat-label>
+        <mat-select [(value)]="selectedVehicleType"  (selectionChange)="vehicleTypeChange($event)">
+          <mat-option value="0"> Select Vehicle Type</mat-option>
+          <mat-option value="{{x.vehicleTypeId}}"  *ngFor="let x of vehicleTypeList">{{x.vehicleTypeName}}</mat-option>
+         
+        </mat-select>
+      </mat-form-field>
+      <button style="margin-top: 5px; margin-left: 5px;" (click)="Submit()"> Save Changes</button>
+      <button style="margin-top: 5px; float: right;" (click)="AddNewTp()"> Add</button>
+       <mat-divider> </mat-divider> 
+          <table class="mat-elevation-z8 demo-table" [hidden]="showHide" > 
+            <thead>
+              <tr class="red">
+                <th>Type</th>
+                <th>RTO</th>
+                <th>Fuel</th>
+                <th>Age</th>
+                <th>GCV/CC</th>
+                <th>I-Com</th>
+                <th>Premimum</th>
+                <th>PA</th>
+                <th>DA</th>
+                <th>P</th>
+                <th>Payout</th>
+                <th>Action1</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of tpRates let i = index" [ngClass]="{
+                'class1': (x.tpRatesId ==0 && x.isDeleted == false),
+                'class2': (x.tpRatesId > 0 && x.isDeleted == false),
+                'class3': (x.tpRatesId > 0 && x.isDeleted == true)
+             }">
+                  <td> <div *ngIf="(x.tpRatesId ==0 && x.isDeleted == false)"> N </div>
+                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == false)"> O </div>
+                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == true)"> D </div></td>
+                  <td>  
+                    <mat-select [value]="x.rtoId" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
+                    <!-- <mat-select-trigger>
+                      {{ optionsControl.value ? optionsControl.value.join(', ') : 'None' }}
+                    </mat-select-trigger> -->
+                    <!-- <mat-option>
+                      <mat-checkbox value="'0'" class="select-all" (change)="toggleSelectAll($event)" [checked]="isAllSelected()"
+                        [indeterminate]="isPartialSelected()">Select All</mat-checkbox>
+                    </mat-option>                   -->
+                     <mat-option *ngFor="let r of x.rtoList1 let j=index" [value]="r.id" style="height: 2em;">
+                      <mat-checkbox [value]="r.id.toString()" (change)="toggleSelectAll($event,i,j)" [checked]="r.isselect" >{{ r.text }}</mat-checkbox>
+                    </mat-option> 
+                  </mat-select>
+                </td>
+                <td>  
+                    <mat-select (selectionChange)="changed($event,i,'fuel')" [value]="x.fueltypeId" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
+                            
+                        <mat-option *ngFor="let ft of x.fueltypeList" [value]="ft.fueltypeId" style="height: 2em;">
+                           {{ ft.fueltypeName }}  
+                        
+                       </mat-option> 
+                     </mat-select>
+                </td>
+                <td>  
+                    <mat-select [value]="x.ageId" (selectionChange)="changed($event,i,'age')" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
+                              
+                        <mat-option *ngFor="let a of x.ageList" [value]="a.ageId" style="height: 2em;">
+                           {{ a.age }}  
+                        
+                       </mat-option> 
+                     </mat-select>
+                </td>
+                <td>  
+                    <mat-select (selectionChange)="changed($event,i,'cc')" [value]="x.cubicCapicityId" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
+                              
+                        <mat-option *ngFor="let cc of x.CCList" [value]="cc.id" style="height: 2em;">
+                           {{ cc.text }}  
+                        
+                       </mat-option> 
+                     </mat-select>
+                </td>
+                <td>  
+                    <mat-select (selectionChange)="changed($event,i,'icom')"  [value]="x.insuranceCompanyId" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
+                              
+                     <mat-option *ngFor="let ic of x.insuranceCompanyList" [value]="ic.insuranceCompanyId" style="height: 2em;">
+                        {{ ic.insuranceCompanyName }}  
+                     
+                    </mat-option> 
+                  </mat-select>
+                </td>
+                <td> <input type="text" (keyup)="changed($event,i,'p')" [value]="x.premimumAmount"  style="width: 80px;border: 1px solid #bdb8b8;"></td>
+                <td> <input type="text" (keyup)="changed($event,i,'pa')" [value]="x.paCover" style="width: 80px;border: 1px solid #bdb8b8;"></td>
+                <td> <input type="text" (keyup)="changed($event,i,'da')" [value]="x.driverCover" style="width: 80px;border: 1px solid #bdb8b8;"></td>
+                <td> <input type="text" (keyup)="changed($event,i,'pc')" [value]="x.passengersCover" style="width: 80px;border: 1px solid #bdb8b8;"></td>
+                <td> <input type="text" (keyup)="changed($event,i,'po')" [value]="x.payoutAmount" style="width: 80px;border: 1px solid #bdb8b8;"></td>
+                <td> <button class="btn" (click)="DeleteTP(i)"> <i class="fa fa-trash"></i></button> 
+                  </td>
+                
+            </tbody>
+          </table>
+          <mat-divider  style="margin-top: 5px;"> </mat-divider> 
+            
+         
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!-- <mat-card>
+    <mat-card-content>
+        
+    <mat-form-field>
+  <mat-label>Select State</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option>None</mat-option>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Vehicle Type</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+    </mat-card-content>
+</mat-card> -->

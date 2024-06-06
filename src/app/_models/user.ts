@@ -8,7 +8,7 @@
 }
 
 export class LoginModel {
-    email!: string;
+    username!: string;
     password!: string;
 }
 
@@ -18,6 +18,7 @@ export class UserDetails {
     email?: string;
     mobileno?: string;
     token?: string;
+    username?: string;
 }
 
 export class UserRegistration {

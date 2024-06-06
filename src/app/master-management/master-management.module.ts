@@ -19,6 +19,8 @@ import { VariantAddComponent } from './variant/variant-add/variant-add.component
 import { VariantEditComponent } from './variant/variant-edit/variant-edit.component';
 import { HomeComponent } from '@app/home';
 import { LayoutComponent } from '@app/layout/layout.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 const routes: Routes = [
@@ -59,7 +61,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MasterManagementModule { }
