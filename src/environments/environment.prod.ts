@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://localhost:7141/api'
+    apiUrl: 'https://api365.365insurance.in/api/'
 };

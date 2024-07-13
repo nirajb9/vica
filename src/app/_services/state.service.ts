@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TpRates } from '@app/tppolicy/tppolicy-add/tppolicy-add.component';
+import { API_URL } from '@app/app.component';
 
 interface State {
   state_id: number;
@@ -19,7 +20,7 @@ interface State {
   providedIn: 'root'
 })
 export class StateService {
-  private apiUrl = 'https://localhost:7141/api/'; // Replace with your API endpoint
+  private apiUrl = API_URL;
 
   constructor(private http: HttpClient) { }
 

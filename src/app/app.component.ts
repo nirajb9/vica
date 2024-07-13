@@ -2,16 +2,20 @@
 
 import { AccountService } from './_services';
 import { LoginModel, User } from './_models';
+import { environment } from '../environments/environment';
 
 @Component({ selector: 'app-root', templateUrl: 'app.component.html' })
+
 export class AppComponent {
+  env: any = environment;
     user?: User | null;
    // loginModel?: LoginModel | null;
 
     constructor(private accountService: AccountService) {
         this.accountService.user.subscribe(x => this.user = x);
     }
-
+     
+   
     logout() {
         this.accountService.logout();
     }
@@ -55,6 +59,9 @@ export class AppComponent {
         }
       ];
 }
+
+export const API_URL  = environment.apiUrl;
+
 export interface NavItem {
     displayName: string;
     disabled?: boolean;

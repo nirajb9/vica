@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StateService } from '../../../_services/state.service';
 
@@ -21,7 +21,7 @@ export class StateAddComponent {
       state_code: ['', Validators.required]
     });
   }
-
+  //emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   addState(): void {
     if (this.stateForm.valid) {
       this.stateService.addState(this.stateForm.value).subscribe(() => {

@@ -87,7 +87,7 @@ export class TppolicyAddComponent implements OnInit {
       this.tpRates[i].rtoList1 = this.rtoSelectList;
     }
     if (this.selectedState == "0" || this.selectedVehicleType == "0") {
-     
+
       this.showHide = true
     }
     else {
@@ -97,20 +97,19 @@ export class TppolicyAddComponent implements OnInit {
   }
   getvehicleData() {
 
-    this.stateService.GetVehicleDetails(Number(this.selectedState), Number(this.selectedVehicleType)).subscribe(res =>
-      {
-        console.log(res);
-        if(res.length > 0) {
-          for(let i =0; i< res.length; i++) {
-            this.rtoSelectListFunction();
-            for(let j =0; j< res[i].lsRtoId.length; j++) {
-              for(let x=0; x<this.rtoSelectList.length; x++) {
-                if(this.rtoSelectList[x].id === res[i].lsRtoId[j]){
-                  this.rtoSelectList[x].isselect =  true;
-                }
-                
+    this.stateService.GetVehicleDetails(Number(this.selectedState), Number(this.selectedVehicleType)).subscribe(res => {
+      console.log(res);
+      if (res.length > 0) {
+        for (let i = 0; i < res.length; i++) {
+          this.rtoSelectListFunction();
+          for (let j = 0; j < res[i].lsRtoId.length; j++) {
+            for (let x = 0; x < this.rtoSelectList.length; x++) {
+              if (this.rtoSelectList[x].id === res[i].lsRtoId[j]) {
+                this.rtoSelectList[x].isselect = true;
               }
+
             }
+          }
           var tt1: TpRates =
           {
             tpRatesId: res[i].tpRatesId,
@@ -142,12 +141,12 @@ export class TppolicyAddComponent implements OnInit {
             insuranceCompanyList: this.insuranceCompanyList,
             lsRtoId: [],
           }
-      
+
           this.tpRates.push(tt1)
         }
-          
-        }
-      });
+
+      }
+    });
   }
   vehicleTypeChange(event: any) {
     //this.vehicleCCList =[];
@@ -167,7 +166,7 @@ export class TppolicyAddComponent implements OnInit {
       this.tpRates[i].CCList = this.vehicleCCList;
     }
     if (this.selectedState == "0" || this.selectedVehicleType == "0") {
-      
+
       this.showHide = true
     }
     else {
@@ -264,17 +263,17 @@ export class TppolicyAddComponent implements OnInit {
     this.rtoSelectList = [{ id: 0, text: "Select All", isselect: false }];
     for (let i = 0; i < this.rtoList.length; i++) {
       if (this.rtoList[i].stateId == Number(this.selectedState)) {
-      let ms: Multiselect = {
-        id: this.rtoList[i].rtoId,
-        text: this.rtoList[i].rtoCode,
-        isselect: false
+        let ms: Multiselect = {
+          id: this.rtoList[i].rtoId,
+          text: this.rtoList[i].rtoCode,
+          isselect: false
+        }
+        this.rtoSelectList.push(ms);
       }
-      this.rtoSelectList.push(ms);
-    }
     }
   }
   AddNewTp() {
-   this.rtoSelectListFunction();
+    this.rtoSelectListFunction();
     var tt1: TpRates =
     {
       tpRatesId: 0,
@@ -309,6 +308,12 @@ export class TppolicyAddComponent implements OnInit {
 
     this.tpRates.push(tt1)
   }
+  Reset() {
+    this.tpRates =[];
+       this.showHide = true;
+       this.selectedState = "0";
+       this.selectedVehicleType = "0";
+  }
   Submit() {
 
     this.tpRates.forEach(s => {
@@ -316,12 +321,12 @@ export class TppolicyAddComponent implements OnInit {
       s.vehicleTypeId = Number(this.selectedVehicleType);
     }
     )
-
-    console.log(this.tpRates);
-
-     this.stateService.addTpRates(this.tpRates).subscribe(res =>{
-       
-     })
+    this.stateService.addTpRates(this.tpRates).subscribe(res => {
+       this.tpRates =[];
+       this.showHide = true;
+       this.selectedState = "0";
+       this.selectedVehicleType = "0";
+    })
   }
 
 

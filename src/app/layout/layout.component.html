@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" style="width: 100%;">
    
-    <span>MaAvi Insurance</span>
+    <span>Insurance Admin</span>
     <span class="example-spacer"></span>
     <div style="float: right;"> Welcome  {{user?.firstName}}<button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button></div>
     
@@ -16,7 +16,7 @@
                     <mat-expansion-panel-header>
                       <mat-panel-title>
                         <!-- Cabeceras del submenu -->
-                        <div fxLayout="row" fxLayoutAlign="space-between center" > 
+                        <div fxLayout="row" fxLayoutAlign="space-between" > 
                           <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
                           {{item.displayName}}
                         </div>
@@ -39,8 +39,8 @@
               <span *ngIf="!item.children || item.children.length === 0">
                 <mat-list-item routerLink="[item.route]">
                   <!-- Entradas principales -->
-                  <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <mat-icon>{{item.iconName}}</mat-icon>
+                  <div fxLayout="row" fxLayoutAlign="space-between">
+                    <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
                     {{item.displayName}}
                   </div>
                 </mat-list-item>

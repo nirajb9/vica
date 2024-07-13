@@ -23,13 +23,13 @@ export class LayoutComponent implements OnInit {
   menu: NavItem [] = [
       {
         displayName: 'Dashboard',
-        iconName: '',//'desktop_windows',
+       // iconName: '',//'desktop_windows',
         route: 'escritorio',
       },        
     
       {
         displayName: 'Master Module',
-        iconName: 'desktop_windows',          
+        iconName: '',          
         children: [
           {
             displayName: 'State',
@@ -59,34 +59,20 @@ export class LayoutComponent implements OnInit {
         ]
       },
       {
-        displayName: 'TP Policy',
-        iconName: 'desktop_windows',          
+        displayName: 'TP Details',
+        iconName: 'desktop_windows',    
         children: [
           {
-            displayName: 'Private Car',
+            displayName: 'Policy Add',
             iconName: 'how_to_reg',
             route: '/tppolicy/tppolicy-add'
           },
           { 
-            displayName: 'GCV-3 Wheeler',
+            displayName: 'Requested Quote',
             iconName: 'waves',
             route: '/tppolicy/tppolicy-list'
           },
-          { 
-              displayName: 'GCV-4 Wheeler',
-              iconName: 'waves',
-              route: '/tppolicy/tppolicy-list'
-            },
-            { 
-              displayName: 'Tractor',
-              iconName: 'waves',
-              route: '/tppolicy/tppolicy-list'
-            },
-            { 
-              displayName: 'Three Wheel PCV(Auto)',
-              iconName: 'waves',
-              route: '/tppolicy/tppolicy-list'
-            }
+         
         ]
       }
     ];
@@ -94,7 +80,7 @@ export class LayoutComponent implements OnInit {
 export interface NavItem {
   displayName: string;
   disabled?: boolean;
-  iconName: string;
+  iconName?: string;
   route?: string;
   children?: NavItem[];
 }

@@ -3,6 +3,7 @@ import { StateService } from '../../../_services/state.service';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-state-list',
@@ -12,7 +13,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 export class StateListComponent implements OnInit, AfterViewInit  {
   states: any[] = [];
 
-  constructor(private stateService: StateService) { }
+  constructor(private stateService: StateService, private router: Router) { }
   displayedColumns: string[] = ['stateId', 'stateName', 'stateCode', 'Action'];
   dataSource = new MatTableDataSource<StateMas>(this.states);
 
@@ -28,7 +29,9 @@ export class StateListComponent implements OnInit, AfterViewInit  {
        console.log(this.states);
      });
   }
-
+  AddNew() {
+    this.router.navigate(['/master/state-add']);
+  }
   
 }
 

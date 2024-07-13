@@ -25,7 +25,7 @@ export class AccountService {
     }
 
     login(loginModel? : LoginModel) {
-        return this.http.post<LoginModel>(`${environment.apiUrl}/account/login`, loginModel)
+        return this.http.post<LoginModel>(`${environment.apiUrl}account/login`, loginModel)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -42,19 +42,19 @@ export class AccountService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+        return this.http.post(`${environment.apiUrl}users/register`, user);
     }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/account/getuserdetails`);
+        return this.http.get<User[]>(`${environment.apiUrl}account/getuserdetails`);
     }
 
     getById(id: number) {
-        return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
+        return this.http.get<User>(`${environment.apiUrl}users/${id}`);
     }
 
     update(id: number, params: any) {
-        return this.http.put(`${environment.apiUrl}/users/${id}`, params)
+        return this.http.put(`${environment.apiUrl}users/${id}`, params)
             .pipe(map(x => {
                 // update stored user if the logged in user updated their own record
                 if (id == this.userValue?.userid) {
@@ -70,7 +70,7 @@ export class AccountService {
     }
 
     delete(id: number) {
-        return this.http.delete(`${environment.apiUrl}/users/${id}`)
+        return this.http.delete(`${environment.apiUrl}users/${id}`)
             .pipe(map(x => {
                 // auto logout if the logged in user deleted their own record
                 if (id == this.userValue?.userid) {

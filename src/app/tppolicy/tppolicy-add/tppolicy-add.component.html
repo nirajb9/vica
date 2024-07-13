@@ -1,5 +1,7 @@
 <mat-card>
+ 
     <mat-card-content>
+
 <div class="example-form">
     
     <mat-form-field class="example-full-width">
@@ -18,8 +20,9 @@
          
         </mat-select>
       </mat-form-field>
-      <button style="margin-top: 5px; margin-left: 5px;" (click)="Submit()"> Save Changes</button>
-      <button style="margin-top: 5px; float: right;" (click)="AddNewTp()"> Add</button>
+      <button (click)="AddNewTp()"> Add New</button>
+      <button (click)="Submit()"> Save Changes</button>
+      <button (click)="Reset()"> Reset</button>
        <mat-divider> </mat-divider> 
           <table class="mat-elevation-z8 demo-table" [hidden]="showHide" > 
             <thead>
@@ -33,21 +36,22 @@
                 <th>Premimum</th>
                 <th>PA</th>
                 <th>DA</th>
-                <th>P</th>
+                <th>Passanger</th>
                 <th>Payout</th>
-                <th>Action1</th>
+                <th>Action</th>
                 
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let x of tpRates let i = index" [ngClass]="{
-                'class1': (x.tpRatesId ==0 && x.isDeleted == false),
-                'class2': (x.tpRatesId > 0 && x.isDeleted == false),
-                'class3': (x.tpRatesId > 0 && x.isDeleted == true)
-             }">
-                  <td> <div *ngIf="(x.tpRatesId ==0 && x.isDeleted == false)"> N </div>
-                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == false)"> O </div>
-                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == true)"> D </div></td>
+              <tr *ngFor="let x of tpRates let i = index">
+                <!-- [ngClass]="{
+                  'class1': (x.tpRatesId ==0 && x.isDeleted == false),
+                  'class2': (x.tpRatesId > 0 && x.isDeleted == false),
+                  'class3': (x.tpRatesId > 0 && x.isDeleted == true)
+               }" -->
+                  <td> <div *ngIf="(x.tpRatesId ==0 && x.isDeleted == false)"> New</div>
+                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == false)"> Old </div>
+                    <div *ngIf="(x.tpRatesId > 0 && x.isDeleted == true)"> Deleted </div></td>
                   <td>  
                     <mat-select [value]="x.rtoId" style="width: 100px; height: 25px; border: 1px solid #bdb8b8;">
                     <!-- <mat-select-trigger>
