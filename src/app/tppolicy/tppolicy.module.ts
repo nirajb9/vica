@@ -16,13 +16,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { QuoteRequestListComponent } from './quote-request-list/quote-request-list.component';
+import { QuoteRequestDetailsComponent } from './quote-request-details/quote-request-details.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,
         children: [
             { path: 'tppolicy-list', component: TppolicyListComponent },
             { path: 'tppolicy-add', component: TppolicyAddComponent },
-            { path: 'tppolicy-edit/:id', component: TppolicyEditComponent }
+            { path: 'tppolicy-edit/:id', component: TppolicyEditComponent },
+            { path: 'quote-request-list', component: QuoteRequestListComponent },
+            { path: 'quote-request-details/:id', component: QuoteRequestDetailsComponent },
         ]}
 
 ];
@@ -31,7 +35,9 @@ const routes: Routes = [
   declarations: [
     TppolicyListComponent,
     TppolicyAddComponent,
-    TppolicyEditComponent
+    TppolicyEditComponent,
+    QuoteRequestListComponent,
+    QuoteRequestDetailsComponent
   ],
   imports: [
     CommonModule,

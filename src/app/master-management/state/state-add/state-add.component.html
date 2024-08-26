@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> State Add</mat-card-title>
+    <mat-card-title> State Add/Edit</mat-card-title>
 
   </mat-card-header>
   <mat-card-content>
@@ -11,21 +11,21 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Name</mat-label>
-                <input type="email" matInput formControlName="state_name" placeholder="Name">
+                <input type="text" matInput formControlName="state_name" placeholder="Name">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Code</mat-label>
-                <input type="email" matInput formControlName="state_code" placeholder="Code">
+                <input type="text" matInput formControlName="state_code" placeholder="Code">
               </mat-form-field>
             </td>
 
           </tr>
           <tr>
-            <td colspan="2"> 
-              <button type="submit" [disabled]="stateForm.invalid">Add</button>
-              <button type="submit" [disabled]="stateForm.invalid">Cancel</button>
+            <td colspan="2" style="float: right;"> 
+              <button type="submit" class="btn btn-sm btn-primary me-1" (click)="AddState()">Add</button>
+              <button type="submit" class="btn btn-sm btn-primary me-1" routerLink="/master/state-list" >Cancel</button>
             </td>
           </tr>
         </table>

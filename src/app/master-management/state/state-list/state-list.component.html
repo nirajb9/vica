@@ -1,18 +1,17 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title> State List</mat-card-title>
-   
   </mat-card-header>
   <mat-card-content>
 <div class="mat-elevation-z8">
 <table class="table table-striped">
   <thead>
-    <tr><td colspan="4"><button style="float: right;" (click)="AddNew()">Add New</button></td> </tr>
+    <tr><td colspan="4"><button style="float: right;" class="btn btn-sm btn-primary me-1" (click)="AddNew()">Add New</button></td> </tr>
       <tr>
-          <th style="width: 30%">Id</th>
+          <th style="width: 25%">Id</th>
           <th style="width: 30%">Name</th>
           <th style="width: 30%">Code</th>
-          <th style="width: 10%"> Actions</th>
+          <th style="width: 15%"> Actions</th>
       </tr>
   </thead>
   <tbody>
@@ -21,11 +20,13 @@
           <td>{{state.stateName}}</td>
           <td>{{state.stateCode}}</td>
           <td style="white-space: nowrap">
-              <a routerLink="edit/{{state.stateId}}" class="btn btn-sm btn-primary me-1">Edit</a>
-              <button  class="btn btn-sm btn-danger btn-delete-user">
-                  <!-- <span  class="spinner-border spinner-border-sm"></span> -->
-                  <span>Delete</span>
+              <a routerLink="/master/state-add/{{state.stateId}}" class="btn btn-sm btn-primary me-1">Edit</a>
+              <button  *ngIf="state.isDeleted==0" style="background-color: rgb(19, 161, 50);" class="btn btn-sm btn-danger" (click)= "DeleteState(state.stateId)">                 
+                  <span>Disable</span>
               </button>
+              <button  *ngIf="state.isDeleted==1"  style="background-color: rgb(161, 19, 85);"  class="btn btn-sm btn-danger" (click)= "EnableState(state.stateId)">                 
+                <span>Enable</span>
+            </button>
           </td>
       </tr>
       <tr *ngIf="!states">
@@ -38,41 +39,3 @@
 </div>
   </mat-card-content>
 </mat-card>
-<!-- <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="states">
-
-    <ng-container matColumnDef="stateId">
-      <th mat-header-cell *matHeaderCellDef> State Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.stateId}} </td>
-    </ng-container>
-
- 
-    <ng-container matColumnDef="stateName">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.stateName}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="stateCode">
-      <th mat-header-cell *matHeaderCellDef> Code </th>
-      <td mat-cell *matCellDef="let element"> {{element.stateCode}} </td>
-    </ng-container>
-    <ng-container matColumnDef="Action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <button>Edit</button>
-      <button>Delete</button>
-    </ng-container>
-
-     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
-  </table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-</div>
-
-
-
-  <button [routerLink]="['/master/state-add']">Add New State</button>
-   -->

@@ -37,22 +37,28 @@ export class LayoutComponent implements OnInit {
             route: '/master/state-list'
           },
           { 
+            displayName: 'Vehicle Type',
+            iconName: 'waves',
+            route: '/todos'
+          },
+          { 
             displayName: 'RTO',
             iconName: 'waves',
             route: '/master/rto-list'
           },
-          { 
-              displayName: 'Vehicle Company',
+         
+            { 
+              displayName: 'CC/GCV',
               iconName: 'waves',
               route: '/todos'
             },
             { 
-              displayName: 'Vehicle Model',
+              displayName: 'Insurance Company',
               iconName: 'waves',
               route: '/todos'
             },
             { 
-              displayName: 'Varient',
+              displayName: 'Age',
               iconName: 'waves',
               route: '/todos'
             }
@@ -70,7 +76,7 @@ export class LayoutComponent implements OnInit {
           { 
             displayName: 'Requested Quote',
             iconName: 'waves',
-            route: '/tppolicy/tppolicy-list'
+            route: '/tppolicy/quote-request-list'
           },
          
         ]

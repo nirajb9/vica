@@ -49,18 +49,23 @@ export class LoginComponent implements OnInit {
         this.loginModel.username = this.f.username.value;
         this.loginModel.password = this.f.password.value;
 
-        this.accountService.login(this.loginModel)
-            .pipe(first())
-            .subscribe({
-                next: () => {
-                    // get return url from query parameters or default to home page
-                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                    this.router.navigateByUrl(returnUrl);
-                },
-                error: error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                }
-            });
+        this.accountService.login(this.loginModel).subscribe(res =>{
+           
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigateByUrl(returnUrl);
+           
+        });
+
+        // this.accountService.login(this.loginModel).pipe(first()).subscribe({
+        //         next: () => {
+                   
+        //             const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        //             this.router.navigateByUrl(returnUrl);
+        //         },
+        //         error: error => {
+        //             this.alertService.error(error);
+        //             this.loading = false;
+        //         }
+        //     });
     }
 }

@@ -4,17 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TpRates } from '@app/tppolicy/tppolicy-add/tppolicy-add.component';
 import { API_URL } from '@app/app.component';
-
-interface State {
-  state_id: number;
-  state_name: string;
-  state_code: string;
-  is_deleted: boolean;
-  created_by: number;
-  created_date: Date;
-  modified_by: number;
-  modified_date: Date;
-}
+import { TPRequestQuotationModel } from '@app/_models/TPRequestQuotationModel';
+import { StateMas } from '@app/_models/StateMas';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +18,9 @@ export class StateService {
   getAllMasters(): Observable<any> {
     return this.http.get(this.apiUrl+"Common/GetAllMasters");
   }
-  getStates(): Observable<State[]> {
-    return this.http.get<State[]>(this.apiUrl+"Common/GetState");
+  getStates(): Observable<StateMas[]> {
+    //return this.http.get<StateMas[]>(this.apiUrl+"Common/GetState");
+    return this.http.get<StateMas[]>(this.apiUrl+"State/GetState");
   }
   getVehicleType(): Observable<[]> {
     return this.http.get<[]>(this.apiUrl+"Common/GetVehicleType");
@@ -54,16 +46,25 @@ export class StateService {
   GetVehicleDetails(stateId :number, vehicleTypeId: number): Observable<any> {
     return this.http.get(this.apiUrl+"TpRates/GetTpRates/"+stateId+"/"+vehicleTypeId);
   }
+  getTPRequestQuotation(): Observable<TPRequestQuotationModel[]> {
+    return this.http.get<TPRequestQuotationModel[]>(this.apiUrl+"RequestQuotation/GetTPRequestQuotation/1");
+  }
   
-  addState(state: State): Observable<State> {
-    return this.http.post<State>(this.apiUrl, state);
+  addState(state: StateMas): Observable<StateMas> {
+    return this.http.post<StateMas>(this.apiUrl+"State/AddState", state);
   }
 
-  updateState(state: State): Observable<State> {
-    return this.http.put<State>(`${this.apiUrl}/${state.state_id}`, state);
+  updateState(state: StateMas): Observable<StateMas> {
+    return this.http.put<StateMas>(this.apiUrl+"State/AddState", state);
   }
 
-  getStateById(id: number): Observable<State> {
-    return this.http.get<State>(`${this.apiUrl}/${id}`);
+  getStateById(id: number): Observable<StateMas> {
+    return this.http.get<StateMas>(this.apiUrl+"State/GetStateById/"+`${id}`);
+  }
+  deleteState(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiUrl+"State/DeleteState/"+`${id}`);
+  }
+  enableState(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiUrl+"State/EnableState/"+`${id}`);
   }
 }
