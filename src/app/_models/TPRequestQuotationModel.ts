@@ -29,3 +29,19 @@ export interface TPRequestQuotationModel {
     dlBUrlw?: string;
     oldPolicyUrlw?: string;
 }
+
+export interface PaymentLink {
+    paymentLinkId: number;
+    agentCompanyId: number | null;
+    userId: number | null;
+    tpRequestId: number | null;
+    paymentLink1: string | null;
+    paymentStatus: string | null;
+    expiredDate: string | null;
+    comments: string | null;
+    isDeleted: boolean | null;
+    createdBy: number | null;
+    createdDate: Date | null;
+    modifiedBy: number | null;
+    modifiedDate: Date | null;
+}

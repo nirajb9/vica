@@ -1,1 +1,159 @@
-<p>quote-request-details works!</p>
+<mat-card>
+    <mat-card-content>
+        <b> Quote Request Details - {{quoteRequestData.vehicleNo }} </b>
+        <div class="mat-elevation-z8">
+        <table>
+            <tr>
+                <td>State Name</td>
+                <td>{{ quoteRequestData.stateName }}</td>
+                <td>RTO</td>
+                <td>{{ quoteRequestData.rto }}</td>
+            </tr>
+            <tr>
+                <td>Id</td>
+                <td>{{ quoteRequestData.id }}</td>
+                <td>Name</td>
+                <td>{{ quoteRequestData.name }}</td>
+            </tr>
+          
+            <tr>
+                <td>Mobile No</td>
+                <td>{{ quoteRequestData.mobileNo }}</td>
+                <td>Created Date</td>
+                <td>{{ quoteRequestData.createdDate }}</td>
+            </tr>
+            <tr>
+                <td>Payment Status</td>
+                <td>{{ quoteRequestData.paymentStatus }}</td>
+                <td>Payment Expiry Date</td>
+                <td>{{ quoteRequestData.paymentExpiryDate }}</td>
+            </tr>
+            <tr>
+                <td>Payment Link</td>
+                <td colspan="2">{{ quoteRequestData.paymentLink }}</td>
+                <td> <button mat-button (click)="openDialog()">Add Payment Link</button></td>
+            </tr>
+            <tr>
+                <td>Payment Comments</td>
+                <td colspan="3">{{ quoteRequestData.paymentComments }}</td>
+            </tr>
+          
+        </table>
+        <table>
+            <tr>
+                <td>Policy Type</td>
+                <td>{{ quoteRequestData.policyType }}</td>
+                <td>Premium Amount</td>
+                <td>{{ quoteRequestData.premimumAmount }}</td>
+            </tr>
+            <tr>
+                <td>Insurance Company</td>
+                <td>{{ quoteRequestData.insuranceCompany }}</td>
+                <td>Passenger Cover</td>
+                <td>{{ quoteRequestData.pessangerCover }}</td>
+            </tr>
+
+            <tr>
+                <td>DA Cover</td>
+                <td>{{ quoteRequestData.daCover }}</td>
+                <td>PA Cover</td>
+                <td>{{ quoteRequestData.paCover }}</td>
+            </tr>
+            <tr>
+                <td>Cashback Amount</td>
+                <td>{{ quoteRequestData.cashbackAmount }}</td>
+            </tr>
+           
+           
+        </table>
+        <table>
+            <tr>
+                <td>Age</td>
+                <td>{{ quoteRequestData.age }}</td>
+                <td>Vehicle Type Name</td>
+                <td>{{ quoteRequestData.vehicleTypeName }}</td>
+            </tr>
+         
+            <tr>
+                <td>Fuel Type</td>
+                <td>{{ quoteRequestData.fuelType }}</td>
+                <td>CCGCV</td>
+                <td>{{ quoteRequestData.ccgcv }}</td>
+            </tr>
+          
+        </table>
+
+        <table>
+            <tr>
+                <td>RC Back URL (M)</td>
+                <td>{{ quoteRequestData.rcBUrlm }}</td>
+                <td>RC Back URL (W)</td>
+                <td>{{ quoteRequestData.rcBUrlw }}</td>
+            </tr>
+           
+            <tr>
+                <td>RC Front URL (M)</td>
+                <td> <a target="_blank" href={{quoteRequestData.rcFUrlm}}>Open</a> </td>
+                <td>RC Front URL (W)</td>
+                <td>{{ quoteRequestData.rcFUrlw }}</td>
+            </tr>
+           
+            <tr>
+                <td>PAN Back URL (M)</td>
+                <td>{{ quoteRequestData.panBUrlm }}</td>
+                <td>PAN Back URL (W)</td>
+                <td>{{ quoteRequestData.panBUrlw }}</td>
+            </tr>
+          
+            <tr>
+                <td>PAN Front URL (M)</td>
+                <td>{{ quoteRequestData.panFUrlm }}</td>
+                <td>PAN Front URL (W)</td>
+                <td>{{ quoteRequestData.panFUrlw }}</td>
+            </tr>
+
+            <tr>
+                <td>Aadhar Back URL (M)</td>
+                <td>{{ quoteRequestData.aadharBUrlm }}</td>
+                <td>Aadhar Back URL (W)</td>
+                <td>{{ quoteRequestData.aadharBUrlw }}</td>
+            </tr>
+           
+            <tr>
+                <td>Aadhar Front URL (M)</td>
+                <td>{{ quoteRequestData.aadharFUrlm }}</td>
+                <td>Aadhar Front URL (W)</td>
+                <td>{{ quoteRequestData.aadharFUrlw }}</td>
+            </tr>
+
+            <tr>
+                <td>DL Back URL (M)</td>
+                <td>{{ quoteRequestData.dlBUrlm }}</td>
+                <td>DL Back URL (W)</td>
+                <td>{{ quoteRequestData.dlBUrlw }}</td>
+            </tr>
+           
+            <tr>
+                <td>DL Front URL (M)</td>
+                <td>{{ quoteRequestData.dlFUrlm }}</td>
+                <td>DL Front URL (W)</td>
+                <td>{{ quoteRequestData.dlFUrlw }}</td>
+            </tr>
+            <tr>
+                <td>Old Policy URL (M)</td>
+                <td>{{ quoteRequestData.oldPolicyUrlm }}</td>
+                <td>Old Policy URL (W)</td>
+                <td>{{ quoteRequestData.oldPolicyUrlw }}</td>
+            </tr>
+           
+          
+        </table>
+    </div>
+    </mat-card-content>
+    
+</mat-card>
+
+
+
+
+

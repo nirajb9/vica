@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AccountService } from '@app/_services';
+import { QuoterequestService } from '@app/_services/quoterequest.service';
 import { StateService } from '@app/_services/state.service';
 
 @Component({
@@ -14,14 +15,14 @@ import { StateService } from '@app/_services/state.service';
 export class QuoteRequestListComponent implements OnInit {
 
  
-  displayedColumns: string[] = ['id', 'name', 'insuranceCompany', 'vehicleNo','premimumAmount','action'];
+  displayedColumns: string[] = ['id','vehicleNo','paymentLink', 'name', 'insuranceCompany', 'premimumAmount','action'];
   gridData: any;
   
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private accountService: AccountService, private stateService: StateService,private router: Router) {
+  constructor(private accountService: AccountService, private quoterequestService: QuoterequestService,private router: Router) {
    
   }
 
@@ -32,7 +33,7 @@ export class QuoteRequestListComponent implements OnInit {
 
   getTpQuoteRequestData() {
 
-    this.stateService.getTPRequestQuotation().subscribe(res => {
+    this.quoterequestService.getTPRequestQuotation(1).subscribe(res => {
       this.gridData = res;
       
     })

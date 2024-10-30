@@ -18,6 +18,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuoteRequestListComponent } from './quote-request-list/quote-request-list.component';
 import { QuoteRequestDetailsComponent } from './quote-request-details/quote-request-details.component';
+import { PaymentlinkAddComponent } from './paymentlink-add/paymentlink-add.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatDatepickerModule, MatDatepickerToggle} from '@angular/material/datepicker';
+import {MatIconModule} from '@angular/material/icon';
+import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,
@@ -37,7 +42,8 @@ const routes: Routes = [
     TppolicyAddComponent,
     TppolicyEditComponent,
     QuoteRequestListComponent,
-    QuoteRequestDetailsComponent
+    QuoteRequestDetailsComponent,
+    PaymentlinkAddComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +62,13 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatIconModule,
+    
   ]
+ 
 })
 export class TppolicyModule { }

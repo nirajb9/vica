@@ -4,7 +4,7 @@
    
  <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. MP09" #input>
   </mat-form-field>
   
   <div class="mat-elevation-z8">
@@ -34,6 +34,11 @@
         <td mat-cell *matCellDef="let row"> {{row.premimumAmount}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="paymentLink">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Link </th>
+        <td mat-cell *matCellDef="let row"> {{row.paymentLink}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
         <td mat-cell *matCellDef="let row"> <button (click)="viewQuote(row.id)">View</button> </td>
@@ -43,7 +48,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
       </tr>
     </table>
   

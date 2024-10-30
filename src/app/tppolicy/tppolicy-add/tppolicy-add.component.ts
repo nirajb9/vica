@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AccountService } from '@app/_services';
 import { StateService } from '@app/_services/state.service';
+import { CommonService } from '@app/_services/common.service';
+import { QuoterequestService } from '@app/_services/quoterequest.service';
 
 
 @Component({
@@ -34,13 +36,14 @@ export class TppolicyAddComponent implements OnInit {
   filteredCountry: Observable<any[]> | undefined;
   showHide: boolean = true;
 
-  constructor(private accountService: AccountService, private stateService: StateService) {
+  constructor(private accountService: AccountService, private stateService: StateService, private quotereuestService: QuoterequestService,
+    private commonService: CommonService) {
     this.countryCtrl = new FormControl();
 
   }
 
   getAllMastersData() {
-    this.stateService.getAllMasters().subscribe(data => {
+    this.commonService.getAllMasters().subscribe(data => {
       let d = data;
       this.stateList = data.stateList
       this.vehicleTypeList = data.vehicleTypeList
@@ -97,7 +100,7 @@ export class TppolicyAddComponent implements OnInit {
   }
   getvehicleData() {
 
-    this.stateService.GetVehicleDetails(Number(this.selectedState), Number(this.selectedVehicleType)).subscribe(res => {
+    this.quotereuestService.GetVehicleDetails(Number(this.selectedState), Number(this.selectedVehicleType)).subscribe(res => {
       console.log(res);
       if (res.length > 0) {
         for (let i = 0; i < res.length; i++) {
@@ -321,7 +324,7 @@ export class TppolicyAddComponent implements OnInit {
       s.vehicleTypeId = Number(this.selectedVehicleType);
     }
     )
-    this.stateService.addTpRates(this.tpRates).subscribe(res => {
+    this.quotereuestService.addTpRates(this.tpRates).subscribe(res => {
        this.tpRates =[];
        this.showHide = true;
        this.selectedState = "0";
