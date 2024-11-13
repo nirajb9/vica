@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
-    //apiUrl: 'https://api365.365insurance.in/api/',
+    production: true,
+    //apiUrl: 'https://api.vicainsurance.in/api/',
     apiUrl: 'https://localhost:7141/api/'
 
 };

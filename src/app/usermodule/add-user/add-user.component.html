@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Add User</mat-card-title>
+  
+    </mat-card-header>
+    <mat-card-content>
+      <div class="mat-elevation-z8">
+        <form class="example-form" [formGroup]="userForm">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Name</mat-label>
+                  <input type="text" matInput formControlName="name" placeholder="Name">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                  <input type="text" matInput formControlName="email" placeholder="Email">
+                </mat-form-field>
+              </td>
+  
+            </tr>
+            <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Mobile No</mat-label>
+                    <input type="text" matInput formControlName="mobileno" placeholder="Mobile No">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input type="text" matInput formControlName="password" placeholder="Password">
+                  </mat-form-field>
+                </td>
+    
+              </tr>
+            <tr>
+              <td colspan="2" style="float: right;"> 
+                <button type="submit" class="btn btn-sm btn-primary me-1" (click)="AddUser()">Add</button>
+                <button type="submit" class="btn btn-sm btn-primary me-1" routerLink="/usersmodule/list-user" >Cancel</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>

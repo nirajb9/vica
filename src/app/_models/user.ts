@@ -28,5 +28,4 @@ export class UserRegistration {
     mobileno?: string;
     password?: string;
     isapproved?: boolean;
-
 }

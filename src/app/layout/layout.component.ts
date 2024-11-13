@@ -25,7 +25,24 @@ export class LayoutComponent implements OnInit {
         displayName: 'Dashboard',
        // iconName: '',//'desktop_windows',
         route: 'escritorio',
-      },        
+      },    
+      {
+        displayName: 'User Module',
+        iconName: 'desktop_windows',    
+        children: [
+          {
+            displayName: 'Add User',
+            iconName: 'how_to_reg',
+            route: '/usersmodule/add-user'
+          },
+          { 
+            displayName: 'View User',
+            iconName: 'waves',
+            route: '/usersmodule/list-user'
+          },
+         
+        ]
+      },    
     
       {
         displayName: 'Master Module',
@@ -65,16 +82,16 @@ export class LayoutComponent implements OnInit {
         ]
       },
       {
-        displayName: 'TP Details',
+        displayName: 'TP(Policy) Details',
         iconName: 'desktop_windows',    
         children: [
           {
-            displayName: 'Policy Add',
+            displayName: 'Add Policy Premium',
             iconName: 'how_to_reg',
             route: '/tppolicy/tppolicy-add'
           },
           { 
-            displayName: 'Requested Quote',
+            displayName: 'Policy Requested',
             iconName: 'waves',
             route: '/tppolicy/quote-request-list'
           },

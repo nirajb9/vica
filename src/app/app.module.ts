@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { LayoutComponent } from './layout/layout.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
     imports: [
         BrowserModule,

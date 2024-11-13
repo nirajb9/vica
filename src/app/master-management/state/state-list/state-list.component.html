@@ -24,7 +24,7 @@
               <button  *ngIf="state.isDeleted==0" style="background-color: rgb(19, 161, 50);" class="btn btn-sm btn-danger" (click)= "DeleteState(state.stateId)">                 
                   <span>Disable</span>
               </button>
-              <button  *ngIf="state.isDeleted==1"  style="background-color: rgb(161, 19, 85);"  class="btn btn-sm btn-danger" (click)= "EnableState(state.stateId)">                 
+              <button  *ngIf="state.isDeleted==1"  style="background-color: #FA9581"  class="btn btn-sm btn-danger" (click)= "EnableState(state.stateId)">                 
                 <span>Enable</span>
             </button>
           </td>

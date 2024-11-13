@@ -22,7 +22,7 @@ export class QuoteRequestListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private accountService: AccountService, private quoterequestService: QuoterequestService,private router: Router) {
+  constructor(private quoterequestService: QuoterequestService,private router: Router) {
    
   }
 

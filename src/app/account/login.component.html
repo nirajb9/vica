@@ -1,5 +1,5 @@
 ﻿<div class="card">
-    <h4 class="card-header">Login</h4>
+    <h4 class="card-header" style="background-color: #FA9581;color: #fff;">Login</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
@@ -17,11 +17,11 @@
                 </div>
             </div>
             <div>
-                <button [disabled]="loading" class="btn btn-primary">
+                <button [disabled]="loading" class="btn btn-primary" style="background-color: #015267;border-color: #015267;">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
                     Login
                 </button>
-                <a routerLink="../register" class="btn btn-link">Register</a>
+                <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
             </div>
         </form>
     </div>
