@@ -86,62 +86,77 @@
         <table>
             <tr>
                 <td>RC Back URL (M)</td>
-                <td>{{ quoteRequestData.rcBUrlm }}</td>
+                <td> <a [hidden]="quoteRequestData.rcBUrlm == ''?true:false" target="_blank" href={{quoteRequestData.rcBUrlm}}>Open</a></td>
                 <td>RC Back URL (W)</td>
-                <td>{{ quoteRequestData.rcBUrlw }}</td>
+                <td>{{quoteRequestData.rcBUrlw}} </td>
+                    
             </tr>
            
             <tr>
                 <td>RC Front URL (M)</td>
-                <td> <a target="_blank" href={{quoteRequestData.rcFUrlm}}>Open</a> </td>
+                <td> <a [hidden]="quoteRequestData.rcFUrlm == ''?true:false" target="_blank" href={{quoteRequestData.rcFUrlm}}>Open</a> </td>
                 <td>RC Front URL (W)</td>
                 <td>{{ quoteRequestData.rcFUrlw }}</td>
             </tr>
            
             <tr>
                 <td>PAN Back URL (M)</td>
-                <td>{{ quoteRequestData.panBUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.panBUrlm == ''?true:false" target="_blank" href={{quoteRequestData.panBUrlm}}>Open</a>
+                </td>
                 <td>PAN Back URL (W)</td>
                 <td>{{ quoteRequestData.panBUrlw }}</td>
             </tr>
           
             <tr>
                 <td>PAN Front URL (M)</td>
-                <td>{{ quoteRequestData.panFUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.panFUrlm == ''?true:false" target="_blank" href={{quoteRequestData.panFUrlm}}>Open</a>
+                </td>
                 <td>PAN Front URL (W)</td>
                 <td>{{ quoteRequestData.panFUrlw }}</td>
             </tr>
 
             <tr>
                 <td>Aadhar Back URL (M)</td>
-                <td>{{ quoteRequestData.aadharBUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.aadharBUrlm == ''?true:false" target="_blank" href={{quoteRequestData.aadharBUrlm}}>Open</a>
+                </td>
                 <td>Aadhar Back URL (W)</td>
                 <td>{{ quoteRequestData.aadharBUrlw }}</td>
             </tr>
            
             <tr>
                 <td>Aadhar Front URL (M)</td>
-                <td>{{ quoteRequestData.aadharFUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.aadharFUrlm == ''?true:false" target="_blank" href={{quoteRequestData.aadharFUrlm}}>Open</a>
+                </td>
                 <td>Aadhar Front URL (W)</td>
                 <td>{{ quoteRequestData.aadharFUrlw }}</td>
             </tr>
 
             <tr>
                 <td>DL Back URL (M)</td>
-                <td>{{ quoteRequestData.dlBUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.dlBUrlm == ''?true:false" target="_blank" href={{quoteRequestData.dlBUrlm}}>Open</a>
+                </td>
                 <td>DL Back URL (W)</td>
                 <td>{{ quoteRequestData.dlBUrlw }}</td>
             </tr>
            
             <tr>
                 <td>DL Front URL (M)</td>
-                <td>{{ quoteRequestData.dlFUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.dlFUrlm == ''?true:false" target="_blank" href={{quoteRequestData.dlFUrlm}}>Open</a>
+                </td>
                 <td>DL Front URL (W)</td>
                 <td>{{ quoteRequestData.dlFUrlw }}</td>
             </tr>
             <tr>
                 <td>Old Policy URL (M)</td>
-                <td>{{ quoteRequestData.oldPolicyUrlm }}</td>
+                <td>
+                    <a [hidden]="quoteRequestData.oldPolicyUrlm == ''?true:false" target="_blank" href={{quoteRequestData.oldPolicyUrlm}}>Open</a>
+                </td>
                 <td>Old Policy URL (W)</td>
                 <td>{{ quoteRequestData.oldPolicyUrlw }}</td>
             </tr>

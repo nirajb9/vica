@@ -16,7 +16,7 @@ export class QuoteRequestDetailsComponent implements OnInit {
   quoteRequestData: any;
   constructor(private route: ActivatedRoute,private quoterequestService: QuoterequestService,private router: Router) { 
 
-    this.route.params.subscribe( params =>
+    this.route.params.subscribe(params =>
        this.quoteRequestId = params.id
       );
   }
@@ -42,7 +42,7 @@ export class QuoteRequestDetailsComponent implements OnInit {
 
   getTpQuoteRequestDetails() {
 
-    this.quoterequestService.getRequestedQuotationById(1,this.quoteRequestId).subscribe(res => {
+    this.quoterequestService.getRequestedQuotationById(this.quoteRequestId).subscribe(res => {
       this.quoteRequestData = res;
       console.log(this.quoteRequestData);
     })

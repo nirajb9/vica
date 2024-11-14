@@ -19,11 +19,11 @@ export class QuoterequestService {
   GetVehicleDetails(stateId :number, vehicleTypeId: number): Observable<any> {
     return this.http.get(this.apiUrl+"TpRates/GetTpRates/"+stateId+"/"+vehicleTypeId);
   }
-  getTPRequestQuotation(userId: number): Observable<TPRequestQuotationModel[]> {
-    return this.http.get<TPRequestQuotationModel[]>(this.apiUrl+"RequestQuotation/GetTPRequestQuotation/"+userId);
+  getTPRequestQuotation(): Observable<TPRequestQuotationModel[]> {
+    return this.http.get<TPRequestQuotationModel[]>(this.apiUrl+"RequestQuotation/GetTPRequestQuotation");
   }
-  getRequestedQuotationById(userId: number, quoteId: number): Observable<any> {
-    return this.http.get<any>(this.apiUrl+"RequestQuotation/GetRequestedQuotationById/"+userId+"/"+quoteId);
+  getRequestedQuotationById(quoteId: number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+"RequestQuotation/GetRequestedQuotationById/"+quoteId);
   }
   addPaymentLink(paymentLink: PaymentLink): Observable<any> {
     return this.http.post<any>(this.apiUrl+"RequestQuotation/AddPaymentLink/", paymentLink);

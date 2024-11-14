@@ -15,7 +15,7 @@ import { StateService } from '@app/_services/state.service';
 export class QuoteRequestListComponent implements OnInit {
 
  
-  displayedColumns: string[] = ['id','vehicleNo','paymentLink', 'name', 'insuranceCompany', 'premimumAmount','action'];
+  displayedColumns: string[] = ['id','userName','vehicleNo','paymentLink', 'name', 'insuranceCompany', 'premimumAmount','action'];
   gridData: any;
   
 
@@ -32,10 +32,8 @@ export class QuoteRequestListComponent implements OnInit {
   }
 
   getTpQuoteRequestData() {
-
-    this.quoterequestService.getTPRequestQuotation(1).subscribe(res => {
-      this.gridData = res;
-      
+    this.quoterequestService.getTPRequestQuotation().subscribe(res => {
+      this.gridData = res;     
     })
   }
 
