@@ -8,6 +8,7 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const usersModule = () => import('./usermodule/usermodule.module').then(x => x.UsermoduleModule);
 const mastermodule = () => import('./master-management/master-management.module').then(x => x.MasterManagementModule);
 const tppolicy = () => import('./tppolicy/tppolicy.module').then(x =>x.TppolicyModule);
+const offlinepolicy = () => import('./offlinepolicy/offlinepolicy.module').then(x =>x.OfflinepolicyModule);
 
 const routes: Routes = [
     { path: '', component: LayoutComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     { path: 'tppolicy', loadChildren: tppolicy, canActivate: [AuthGuard]},
+    { path: 'offlinepolicy', loadChildren: offlinepolicy, canActivate: [AuthGuard]},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

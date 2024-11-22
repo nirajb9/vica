@@ -97,6 +97,18 @@ export class LayoutComponent implements OnInit {
           },
          
         ]
+      },
+      {
+        displayName: 'Offline Policy',
+        iconName: 'desktop_windows',    
+        children: [
+          {
+            displayName: 'View Offline Policy',
+            iconName: 'how_to_reg',
+            route: '/offlinepolicy/offlinepolicy-list'
+          }
+         
+        ]
       }
     ];
 }

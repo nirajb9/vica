@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-content>
+
+   
+ <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. MP09" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="gridData" matSort>
+      <ng-container matColumnDef="offlineQuotationId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.offlineQuotationId}} </td>
+      </ng-container>
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="vehicleNo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No </th>
+        <td mat-cell *matCellDef="let row"> {{row.vehicleNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="idv">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> IDV </th>
+        <td mat-cell *matCellDef="let row"> {{row.idv}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="insurancecompanies">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Insurance Company </th>
+        <td mat-cell *matCellDef="let row"> {{row.insurancecompanies}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row"> <button class="btn btn-sm btn-primary me-1" (click)="viewOfflinePolicy(row.offlineQuotationId)">Add/View Quote</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> 
+  </div>
+
+</mat-card-content>
+</mat-card>
