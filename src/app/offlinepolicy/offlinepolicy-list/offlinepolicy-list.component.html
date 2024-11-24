@@ -1,7 +1,9 @@
 <mat-card>
-    <mat-card-content>
+  <mat-card-header>
+    <mat-card-title>Offline Policy Request</mat-card-title>
 
-   
+  </mat-card-header>
+<mat-card-content>  
  <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. MP09" #input>
@@ -39,7 +41,7 @@
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-        <td mat-cell *matCellDef="let row"> <button class="btn btn-sm btn-primary me-1" (click)="viewOfflinePolicy(row.offlineQuotationId)">Add/View Quote</button> </td>
+        <td mat-cell *matCellDef="let row"> <button class="btn btn-sm btn-primary me-1" (click)="viewOfflinePolicy(row.offlineQuotationId, row.userId, row)">Add/View Quote</button> </td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

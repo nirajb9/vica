@@ -19,12 +19,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatDatepickerModule, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
+import { BuyofflinepolicyrequestListComponent } from './buyofflinepolicyrequest-list/buyofflinepolicyrequest-list.component';
+import { OfflinepolicypaymentlinkAddComponent } from './offlinepolicypaymentlink-add/offlinepolicypaymentlink-add.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,
         children: [
             { path: 'offlinepolicy-list', component: OfflinepolicyListComponent },
-            { path: 'offlinepolicy-add/:id', component: OfflinepolicydetailsAddComponent}
+            { path: 'offlinepolicy-add/:id/:userid', component: OfflinepolicydetailsAddComponent}
            
         ]}
 
@@ -32,7 +34,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     OfflinepolicyListComponent,
-    OfflinepolicydetailsAddComponent
+    OfflinepolicydetailsAddComponent,
+    BuyofflinepolicyrequestListComponent,
+    OfflinepolicypaymentlinkAddComponent
   ],
   imports: [
     CommonModule,

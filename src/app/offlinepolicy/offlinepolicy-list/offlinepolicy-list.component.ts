@@ -33,8 +33,9 @@ export class OfflinepolicyListComponent implements OnInit {
    
   }
 
-  viewOfflinePolicy(id : number) {
-    this.router.navigate(['/offlinepolicy/offlinepolicy-add/'+id]);
+  viewOfflinePolicy(id : number, userid: number, allData: any) {
+    localStorage.setItem('requestdata', JSON.stringify(allData));
+    this.router.navigate(['/offlinepolicy/offlinepolicy-add/'+id+"/"+userid]);
     console.log(id);
   }
 

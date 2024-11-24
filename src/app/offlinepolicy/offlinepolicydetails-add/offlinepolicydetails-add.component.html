@@ -1,1 +1,157 @@
-<p>offlinepolicydetails-add works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add Policy Details</mat-card-title>
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+    <table class="example-full-width" cellspacing="0" style="border: 1px solid #ddd; padding: 10px;">
+      <tr>
+        <th colspan="2" style="width: 50%;"> Insurance Company:</th>
+        <th style="width: 10%;">RC</th>
+        <th style="width: 15%;">IDV</th>
+        <th style="width: 5%;">PA</th>
+        
+        <th style="width: 5%;">DA</th>
+        <th style="width: 5%;">PA C</th>
+        <th style="width: 10%;">Vehicle No</th>
+           
+      </tr>
+      <tr>
+        <td colspan="2" style="width: 50%;">{{this.requestData.insurancecompanies}}</td>
+        <td style="width: 10%;"><a target="_blank" href={{this.requestData.rcFUrlm}}>RCF </a>/
+          <a target="_blank" href={{this.requestData.rcBUrlm}}>RCB </a></td>
+          <td style="width: 15%;">{{this.requestData.idv}}</td>
+        <td style="width: 5%;">{{this.requestData.pacover}}</td>
+       
+       
+        <td style="width: 5%;">{{this.requestData.dacover}}</td> 
+       
+        <td style="width: 5%;">{{this.requestData.passangercover}}</td>     
+        <td style="width: 10%;">{{this.requestData.vehicleNo}}</td>     
+      </tr>
+      </table>
+      </div>
+
+  </mat-card-content>
+
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+
+      <form class="example-form" [formGroup]="offlinePolicyForm">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-select (selectionChange)="changed($event)" placeholder="Select Company"
+                style="border-bottom: 1px solid #000000de;" class="example-full-width">
+                <mat-option *ngFor="let ic of insuranceCompanyList" [value]="ic" class="example-full-width">
+                  {{ ic.insuranceCompanyName }}
+                </mat-option>
+              </mat-select>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Premimum Amount</mat-label>
+                <input type="text" matInput formControlName="premiumAmount" placeholder="Premimum Amount">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Payout Amount</mat-label>
+                <input type="text" matInput formControlName="payoutAmount" placeholder="Payout Amount">
+              </mat-form-field>
+            </td>
+
+
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Status</mat-label>
+                <input type="text" matInput formControlName="status" placeholder="Status">
+              </mat-form-field>
+            </td>
+           
+            <td>
+              <mat-form-field class="example-full-width">
+                <!-- <mat-label>Quotation Url</mat-label> -->
+                <input matInput type="file" (change)="onFileSelected($event)" />
+              </mat-form-field>
+            </td>
+           
+
+          </tr>
+
+          <tr>
+
+
+          </tr>
+          <tr>
+            <td colspan="2" style="float: right;">
+              <button type="submit" class="btn btn-sm btn-primary me-1" (click)="AddOfflineQuoteDetails()">Add</button>
+              <button type="submit" class="btn btn-sm btn-primary me-1"
+                routerLink="/offlinepolicy/offlinepolicy-list">Cancel</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </mat-card-content>
+  <mat-card-content>
+
+
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. MP09" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="gridData" matSort>
+        <ng-container matColumnDef="offlineQuotationDetailsId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.offlineQuotationDetailsId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="insuranceCompanyName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.insuranceCompanyName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="premiumAmount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Premium Amount </th>
+          <td mat-cell *matCellDef="let row"> {{row.premiumAmount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="payoutAmount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payout Amount </th>
+          <td mat-cell *matCellDef="let row"> {{row.payoutAmount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quotationUrl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quotation Url</th>
+          <td mat-cell *matCellDef="let row">
+            <a target="_blank" href={{row.quotationUrl}}>Quote </a>
+
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row"> <button class="btn btn-sm btn-primary me-1"
+              (click)="deleteQuotation(row.offlineQuotationId)">Delete Quote</button> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+  </mat-card-content>
+</mat-card>
