@@ -106,6 +106,11 @@ export class LayoutComponent implements OnInit {
             displayName: 'View Offline Policy',
             iconName: 'how_to_reg',
             route: '/offlinepolicy/offlinepolicy-list'
+          },
+          {
+            displayName: 'Buy Offline Policy',
+            iconName: 'how_to_reg',
+            route: '/offlinepolicy/buyofflinepolicy-list'
           }
          
         ]

@@ -34,3 +34,26 @@ export interface OfflineQuotationRequestDetail {
     fileData: string | null;
     fileName: string | null;
 }
+
+export interface OfflinePolicyBuyRequest {
+    offlinePolicyBuyRequestId: number;
+    offlineQuotationId: number | null;
+    userId: number | null;
+    agentCompanyId: number | null;
+    rcFUrlm: string | null;
+    rcBUrlm: string | null;
+    aadharFUrlm: string | null;
+    aadharBUrlm: string | null;
+    panFUrlm: string | null;
+    panBUrlm: string | null;
+    quotation: string | null;
+    remark: string | null;
+    paymentLink: string | null;
+    status: string | null;
+    vehicleNo: string | null;
+    isDeleted: boolean | null;
+    createdBy: number | null;
+    createdDate: string | null;
+    modifiedBy: number | null;
+    modifiedDate: string | null;
+}

@@ -76,6 +76,8 @@ export class OfflinepolicydetailsAddComponent implements OnInit {
         this.offlinePolicyForm.value.status = '';   
       this.offlinepolicyService.addOfflineQuoteDetails(offlineObj).subscribe(result => {         
           console.log(result);
+         // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+          alert('SUCCESS!! Data saved sucessfully!');
           this.getQuoteDetails();
           
       });
@@ -118,6 +120,12 @@ export class OfflinepolicydetailsAddComponent implements OnInit {
   }
 
   deleteQuotation(val : number){
+    this.offlinepolicyService.DeleteOfflineQuoteDetails(val).subscribe(result=>
+    { 
+      console.log(result);
+      this.getQuoteDetails();
+      alert('SUCCESS!! Data deleted sucessfully!');
+    });
 
   }
 

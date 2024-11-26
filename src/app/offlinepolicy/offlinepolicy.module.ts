@@ -26,7 +26,9 @@ const routes: Routes = [
   {path: '', component: LayoutComponent,
         children: [
             { path: 'offlinepolicy-list', component: OfflinepolicyListComponent },
-            { path: 'offlinepolicy-add/:id/:userid', component: OfflinepolicydetailsAddComponent}
+            { path: 'offlinepolicy-add/:id/:userid', component: OfflinepolicydetailsAddComponent},
+            { path: 'buyofflinepolicy-list', component: BuyofflinepolicyrequestListComponent},
+            { path: 'offlinepolicypaymentlink-add/:id/:userid', component: OfflinepolicypaymentlinkAddComponent}
            
         ]}
 

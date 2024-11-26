@@ -1,1 +1,86 @@
-<p>offlinepolicypaymentlink-add works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Add - Offline Policy Payment</mat-card-title>
+  
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div class="mat-elevation-z8">
+      <table class="example-full-width" cellspacing="0" style="border: 1px solid #ddd; padding: 10px;">
+        <tr style="background-color: #fa958136;font-weight: bold;">
+          <td >Vehicle No</td>
+          <td >RC Front</td>
+          <td >RC Back</td>
+          <td >Aadhar Front</td>
+          <td >Aadhar Back</td>
+        
+        </tr>
+        <tr>
+            <td >{{this.requestData.vehicleNo}}</td>   
+         
+          <td ><a target="_blank" href={{this.requestData.rcFUrlm}}>Open </a> </td>
+          <td ><a target="_blank" href={{this.requestData.rcBUrlm}}>Open </a> </td>
+          <td ><a target="_blank" href={{this.requestData.aadharFUrlm}}>Open </a> </td>
+          <td ><a target="_blank" href={{this.requestData.aadharBUrlm}}>Open </a> </td>
+        
+           
+        </tr>
+
+        <tr style="background-color: #fa958136;font-weight: bold;">
+            <td >Pancard Front</td>
+            <td >Pancard Back</td>
+            <td >Quotation</td>
+            <td >Payment Link</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td ><a target="_blank" href={{this.requestData.panFUrlm}}>Open </a> </td>
+            <td ><a target="_blank" href={{this.requestData.panBUrlm}}>Open </a> </td>
+            <td ><a target="_blank" href={{this.requestData.quotation}}>Open </a> </td>
+            <td ><a target="_blank" href={{this.requestData.paymentLink}}>Open </a> </td>
+            <td> </td>
+        </tr>
+
+        <tr style="background-color: #fa958136;font-weight: bold;">
+            <td >Nominee Name</td>
+            <td >Nominee Relation</td>
+            <td >DOB</td>
+            <td ></td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td ><a target="_blank" href={{this.requestData.nomineeName}}>Open </a> </td>
+            <td ><a target="_blank" href={{this.requestData.nomineeRelationship}}>Open </a> </td>
+            <td ><a target="_blank" href={{this.requestData.nomineeDob}}>Open </a> </td>
+            <td ></td>
+            <td> </td>
+        </tr>
+        </table>
+        </div>
+  
+    </mat-card-content>
+    <mat-card-content>
+        <div class="mat-elevation-z8">
+    <div style="padding: 5px;">
+          <form class="example-form" [formGroup]="offlinePolicyForm">
+            <mat-form-field class="example-full-width"  style="width: 100%;">
+                <mat-label>Payment Link</mat-label>
+                <input type="text" matInput formControlName="paymentLink" placeholder="Payment Link">
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width: 50%;">
+                <mat-label>Remark</mat-label>
+                <input type="text" matInput formControlName="remark" placeholder="Remark">
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width: 50%;">
+                <mat-label>Status</mat-label>
+                <input type="text" matInput formControlName="status" placeholder="Status">
+              </mat-form-field>
+              <button type="submit" class="btn btn-sm btn-primary me-1" (click)="AddPaymentLink()">Add Link</button>
+              <button type="submit" class="btn btn-sm btn-primary me-1"
+                routerLink="/offlinepolicy/buyofflinepolicy-list">Close</button>
+           
+          </form>
+        </div>
+        </div>
+      </mat-card-content>
+</mat-card>
