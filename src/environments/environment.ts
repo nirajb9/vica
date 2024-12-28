@@ -4,8 +4,8 @@
 
 export const environment = {
     production: true,
-    //apiUrl: 'https://api.vicainsurance.in/api/',
-    apiUrl: 'https://localhost:7141/api/'
+    apiUrl: 'https://api.vicainsurance.in/api/',
+    //apiUrl: 'https://localhost:7141/api/'
 
 };
 
