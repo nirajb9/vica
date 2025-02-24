@@ -6,33 +6,34 @@
 
   <mat-card-content>
     <div class="mat-elevation-z8">
-    <table class="example-full-width" cellspacing="0" style="border: 1px solid #ddd; padding: 10px;">
-      <tr>
-        <th colspan="2" style="width: 50%;"> Insurance Company:</th>
-        <th style="width: 10%;">RC</th>
-        <th style="width: 15%;">IDV</th>
-        <th style="width: 5%;">PA</th>
-        
-        <th style="width: 5%;">DA</th>
-        <th style="width: 5%;">PA C</th>
-        <th style="width: 10%;">Vehicle No</th>
-           
-      </tr>
-      <tr>
-        <td colspan="2" style="width: 50%;">{{this.requestData.insurancecompanies}}</td>
-        <td style="width: 10%;"><a target="_blank" href={{this.requestData.rcFUrlm}}>RCF </a>/
-          <a target="_blank" href={{this.requestData.rcBUrlm}}>RCB </a></td>
+      <table class="example-full-width" cellspacing="0" style="border: 1px solid #ddd; padding: 10px;">
+        <tr>
+          <th colspan="2" style="width: 50%;"> Insurance Company:</th>
+          <th style="width: 10%;">RC</th>
+          <th style="width: 15%;">IDV</th>
+          <th style="width: 5%;">PA</th>
+
+          <th style="width: 5%;">DA</th>
+          <th style="width: 5%;">PA C</th>
+          <th style="width: 10%;">Vehicle No</th>
+
+        </tr>
+        <tr>
+          <td colspan="2" style="width: 50%;">{{this.requestData.insurancecompanies}}</td>
+          <td style="width: 10%;"><a target="_blank" href={{this.requestData.rcFUrlm}}>RCF </a>/
+            <a target="_blank" href={{this.requestData.rcBUrlm}}>RCB </a>
+          </td>
           <td style="width: 15%;">{{this.requestData.idv}}</td>
-        <td style="width: 5%;">{{this.requestData.pacover}}</td>
-       
-       
-        <td style="width: 5%;">{{this.requestData.dacover}}</td> 
-       
-        <td style="width: 5%;">{{this.requestData.passangercover}}</td>     
-        <td style="width: 10%;">{{this.requestData.vehicleNo}}</td>     
-      </tr>
+          <td style="width: 5%;">{{this.requestData.pacover}}</td>
+
+
+          <td style="width: 5%;">{{this.requestData.dacover}}</td>
+
+          <td style="width: 5%;">{{this.requestData.passangercover}}</td>
+          <td style="width: 10%;">{{this.requestData.vehicleNo}}</td>
+        </tr>
       </table>
-      </div>
+    </div>
 
   </mat-card-content>
 
@@ -62,28 +63,19 @@
                 <input type="text" matInput formControlName="payoutAmount" placeholder="Payout Amount">
               </mat-form-field>
             </td>
-
-
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Status</mat-label>
                 <input type="text" matInput formControlName="status" placeholder="Status">
               </mat-form-field>
             </td>
-           
             <td>
-              <mat-form-field class="example-full-width">
-                <!-- <mat-label>Quotation Url</mat-label> -->
-                <input matInput type="file" (change)="onFileSelected($event)" />
-              </mat-form-field>
+              <input type="file"  (change)="onFileSelected($event)" />
+             
             </td>
-           
-
           </tr>
 
           <tr>
-
-
           </tr>
           <tr>
             <td colspan="2" style="float: right;">

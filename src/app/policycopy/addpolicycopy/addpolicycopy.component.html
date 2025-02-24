@@ -1,0 +1,56 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Add Policy Copy</mat-card-title>
+  
+    </mat-card-header>
+    <mat-card-content>
+      <div class="mat-elevation-z8">
+        <form class="example-form" [formGroup]="aForm">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Select User</mat-label>
+        <mat-select formControlName="username" >
+          <mat-option value="0"> Select User</mat-option>
+          <mat-option value="{{x.id}}"  *ngFor="let x of userList">{{x.name}}</mat-option>
+         
+        </mat-select>
+                  <!-- <mat-label>Select User</mat-label>
+                  <input type="text" matInput formControlName="username" placeholder="Name"> -->
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Vehicle No</mat-label>
+                  <input type="text" matInput formControlName="vehicleno" placeholder="Vehicle No">
+                </mat-form-field>
+              </td>
+  
+            </tr>
+            <tr>
+                <td>
+                    <label>Policy Copy</label>
+                    <input type="file" class="customFileUpload"  (change)="onFileSelected($event)" />
+                   
+                  
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Status</mat-label>
+                    <input type="text" matInput formControlName="status" placeholder="Status">
+                  </mat-form-field>
+                </td>
+    
+              </tr>
+            <tr>
+              <td colspan="2" style="float: right;"> 
+                <button type="submit" class="btn btn-sm btn-primary me-1" (click)="AddData()">Add</button>
+                <button type="submit" class="btn btn-sm btn-primary me-1" routerLink="/policycopy/policycopy-view" >Cancel</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>

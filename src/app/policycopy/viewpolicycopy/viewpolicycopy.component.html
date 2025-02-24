@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Policy Copy</mat-card-title>
+  
+    </mat-card-header>
+  <mat-card-content>  
+   <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. MP09" #input>
+      
+    </mat-form-field>
+    <button style="float: right;" class="btn btn-sm btn-primary me-1" routerLink="/policycopy/policycopy-add">Add Policy Copy </button>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="gridData" matSort>
+        <ng-container matColumnDef="policyCopyId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.policyCopyId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="userName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="vehicleNo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle No </th>
+          <td mat-cell *matCellDef="let row"> {{row.vehicleNo}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="policyCopyUrl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Policy Copy</th>
+          <td mat-cell *matCellDef="let row">         
+          <a target="_blank" href={{row.policyCopyUrl}}>View Policy Copy </a>
+         </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row"> <button class="btn btn-sm btn-primary me-1" (click)="addCashbackDetails(row.policyCashbackRequestId, row.userId, row)">Delete Policy Copy</button> </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator [length]="gridData.length" [pageSize]="10" [pageSizeOptions]="[10, 20,50]">
+      </mat-paginator> 
+    </div>
+  
+  </mat-card-content>
+  </mat-card>

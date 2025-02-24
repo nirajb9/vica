@@ -62,8 +62,7 @@ export class LayoutComponent implements OnInit {
             displayName: 'RTO',
             iconName: 'waves',
             route: '/master/rto-list'
-          },
-         
+          },        
             { 
               displayName: 'CC/GCV',
               iconName: 'waves',
@@ -113,6 +112,39 @@ export class LayoutComponent implements OnInit {
             route: '/offlinepolicy/buyofflinepolicy-list'
           }
          
+        ]
+      },
+      {
+        displayName: 'Cashback',
+        iconName: 'desktop_windows',
+        children: [
+          {
+            displayName: 'View Cashback',
+            iconName: 'how_to_reg',
+            route: '/cashback/cashback-view'
+          },
+        ]
+      },
+      {
+        displayName: 'Policy Copy',
+        iconName: 'desktop_windows',
+        children: [
+          {
+            displayName: 'View Policy Copy',
+            iconName: 'how_to_reg',
+            route: '/policycopy/policycopy-view'
+          },
+        ]
+      },
+      {
+        displayName: 'Endorsement Policy',
+        iconName: 'desktop_windows',
+        children: [
+          {
+            displayName: 'View Endorsement Policy',
+            iconName: 'how_to_reg',
+            route: '/endorsement/endorsement-view'
+          },
         ]
       }
     ];

@@ -29,4 +29,8 @@ export class CommonService {
   getAllMasters(): Observable<any> {
     return this.http.get(this.apiUrl+"Common/GetAllMasters");
   }
+
+  getUserList(): Observable<[]> {
+    return this.http.get<[]>(this.apiUrl+"Common/GetUserList");
+  }
 }

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
     loginModel : LoginModel = {
         username: '',
-        password: ''
+        Password: ''
     };
     constructor(
         private formBuilder: FormBuilder,
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         
         this.loginModel.username = this.f.username.value;
-        this.loginModel.password = this.f.password.value;
+        this.loginModel.Password = this.f.password.value;
 
         this.accountService.login(this.loginModel).subscribe(res =>{
            

@@ -9,6 +9,9 @@ const usersModule = () => import('./usermodule/usermodule.module').then(x => x.U
 const mastermodule = () => import('./master-management/master-management.module').then(x => x.MasterManagementModule);
 const tppolicy = () => import('./tppolicy/tppolicy.module').then(x =>x.TppolicyModule);
 const offlinepolicy = () => import('./offlinepolicy/offlinepolicy.module').then(x =>x.OfflinepolicyModule);
+const cashback = () => import('./cashback/cashback.module').then(x => x.CashbackModule);
+const policycopy = () => import('./policycopy/policycopy.module').then(x => x.PolicycopyModule);
+const endorsement = () => import('./endorsement/endorsement.module').then(x => x.EndorsementModule);
 
 const routes: Routes = [
     { path: '', component: LayoutComponent, canActivate: [AuthGuard] },
@@ -26,7 +29,9 @@ const routes: Routes = [
     },
     { path: 'tppolicy', loadChildren: tppolicy, canActivate: [AuthGuard]},
     { path: 'offlinepolicy', loadChildren: offlinepolicy, canActivate: [AuthGuard]},
-
+    { path: 'cashback', loadChildren: cashback, canActivate: [AuthGuard]},
+    { path: 'policycopy', loadChildren: policycopy, canActivate: [AuthGuard]},
+    { path: 'endorsement', loadChildren: endorsement, canActivate: [AuthGuard]},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

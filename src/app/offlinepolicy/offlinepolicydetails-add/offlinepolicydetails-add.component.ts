@@ -36,7 +36,8 @@ export class OfflinepolicydetailsAddComponent implements OnInit {
       premiumAmount: ['', Validators.required],
       payoutAmount: ['', Validators.required],
       quotationUrl: [''],
-      status: ['', Validators.required]
+      status: ['', Validators.required],
+      file:[null]
     });
    
 
@@ -86,6 +87,7 @@ export class OfflinepolicydetailsAddComponent implements OnInit {
 
   ngOnInit() {
     const storedData = localStorage.getItem('requestdata');
+    console.log(storedData);
     if (storedData) {
       this.requestData = JSON.parse(storedData);
       console.log(this.requestData);

@@ -9,7 +9,7 @@
 
 export class LoginModel {
     username?: string;
-    password?: string;
+    Password?: string;
 }
 
 export class UserDetails {

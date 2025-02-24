@@ -54,8 +54,6 @@ const routes: Routes = [
     MatCardModule,
     MatSelectModule,
     MatDividerModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDialogModule,

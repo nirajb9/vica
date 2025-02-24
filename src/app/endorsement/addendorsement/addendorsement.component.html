@@ -1,0 +1,94 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Endorsement Details</mat-card-title>
+  
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div class="mat-elevation-z8" style="padding: 10px;">
+        <table class="example-full-width" cellspacing="0" >
+            <tr>
+                <td> Add Comment</td>
+                <td colspan="2"> <input type="text" [(ngModel)] = "comments" [ngModelOptions]="{standalone: true}"> </td>
+                <td><button (click)="SaveData()"> Add Comments</button> </td>
+            </tr>
+            <tr>
+                <td> Update Status</td>
+                <td colspan="2"> <input type="text" [(ngModel)] = "status" [ngModelOptions]="{standalone: true}" > </td>
+                <td><button (click)="SaveData()"> Update Status</button> </td>
+            </tr>
+            <tr>
+                <td> Upload New Policy Copy</td>
+                <td colspan="2"> <input type="file" class="customFileUpload"  (change)="onFileSelected($event)" /> </td>
+                <td><button (click)="SaveData()"> Upload</button> </td>
+            </tr>
+          <tr>
+            <td style="width: 10%;font-weight: normal;">User</td>
+            <td style="width: 10%;">{{this.requestData.userName}}</td>
+            <td style="width: 10%;font-weight: normal;">Vehicle No</td>
+            <td style="width: 10%;">{{this.requestData.vehicleNo}}</td>
+            
+          </tr>
+          <tr>
+
+            <td style="width: 10%;font-weight: normal;">Policy Copy Old</td>
+            <td style="width: 10%;"><a target="_blank" href={{this.requestData.policycopy}}>View Policy Copy </a>
+            </td>
+            <td style="width: 15%;font-weight: normal;">Policy Copy New</td>
+            <td style="width: 15%;"><a target="_blank" href={{this.requestData.policycopyFinal}}>View Policy Copy </a></td>
+           
+  
+          </tr>
+          <tr>
+            <td style="width: 5%;font-weight: normal;">Endorsement Type</td>
+           
+            <td style="width: 5%;">{{this.requestData.endorsementType}}</td>
+            <td style="width: 5%;font-weight: normal;">Status</td>
+           
+            <td style="width: 5%;">{{this.requestData.status}}</td>
+          </tr>
+          <tr>
+
+            <td style="width: 10%;font-weight: normal;">RC F</td>
+            <td style="width: 10%;"><a target="_blank" href={{this.requestData.rcF}}>View RC</a>
+            </td>
+            <td style="width: 15%;font-weight: normal;">RC B</td>
+            <td style="width: 15%;"><a target="_blank" href={{this.requestData.rcB}}>View RC</a></td>
+           
+  
+          </tr>
+          <tr>
+
+            <td style="width: 10%;font-weight: normal;">KYC1</td>
+            <td style="width: 10%;"><a target="_blank" href={{this.requestData.kyc1}}>View KYC</a>
+            </td>
+            <td style="width: 15%;font-weight: normal;">KYC2</td>
+            <td style="width: 15%;"><a target="_blank" href={{this.requestData.kyc2}}>View KYC</a></td>
+           
+  
+          </tr>
+          <tr>
+
+            <td style="width: 10%;font-weight: normal;">KYC3</td>
+            <td style="width: 10%;"><a target="_blank" href={{this.requestData.kyc3}}>View KYC</a>
+            </td>
+            <td style="width: 15%;font-weight: normal;">KYC4</td>
+            <td style="width: 15%;"><a target="_blank" href={{this.requestData.kyc4}}>View KYC</a></td>
+           
+  
+          </tr>
+
+          <tr>
+
+            <td style="width: 10%;font-weight: normal;">Comments</td>
+            <td colspan="3" style="width: 40%;">{{this.requestData.comments}}
+            </td>
+           
+          </tr>
+     
+         
+        </table>
+      </div>
+  
+    </mat-card-content>
+</mat-card>
