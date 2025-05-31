@@ -143,6 +143,10 @@ export class TppolicyAddComponent implements OnInit {
             fueltypeList: this.fuelTypeList,
             insuranceCompanyList: this.insuranceCompanyList,
             lsRtoId: [],
+            actualPayoutAmount: res[i].actualPayoutAmount,
+            rTOIds:  res[i].rTOIds,
+            ageRangeMin :  res[i].ageRangeMin,
+            ageRangeMax : res[i].ageRangeMax,
           }
 
           this.tpRates.push(tt1)
@@ -164,7 +168,7 @@ export class TppolicyAddComponent implements OnInit {
         this.vehicleCCList.push(ms);
       }
     }
-    console.log(this.vehicleCCList);
+    
     for (let i = 0; i < this.tpRates.length; i++) {
       this.tpRates[i].CCList = this.vehicleCCList;
     }
@@ -212,6 +216,15 @@ export class TppolicyAddComponent implements OnInit {
     }
     if (field == 'po') {
       this.tpRates[i].payoutAmount = Number(value.target.value);
+    }
+    if (field == 'ageRangeMin') {
+      this.tpRates[i].ageRangeMin = Number(value.target.value);
+    }
+    if (field == 'ageRangeMax') {
+      this.tpRates[i].ageRangeMax = Number(value.target.value);
+    }
+    if (field == 'actualPayoutAmount') {
+      this.tpRates[i].actualPayoutAmount = Number(value.target.value);
     }
   }
 
@@ -305,8 +318,11 @@ export class TppolicyAddComponent implements OnInit {
       ageList: this.ageList,
       CCList: this.vehicleCCList,
       fueltypeList: this.fuelTypeList,
-      insuranceCompanyList: this.insuranceCompanyList,
-      lsRtoId: [],
+      insuranceCompanyList: this.insuranceCompanyList,    
+      actualPayoutAmount: 0,
+      rTOIds: '',
+      ageRangeMin : 0,
+      ageRangeMax : 0
     }
 
     this.tpRates.push(tt1)
@@ -374,5 +390,10 @@ export interface TpRates {
   insuranceCompanyList?: any;
   vehicleTypeId?: number;
   lsRtoId?: [];
+  actualPayoutAmount?: number;
+  rTOIds?: any;
+  ageRangeMin? : number;
+  ageRangeMax? : number;
+  
 }
 
